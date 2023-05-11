@@ -58,15 +58,6 @@ include 'config/Bootstrap.php';
               </thead>
               <tbody id="prod_cont">
 
-                      <tr>
-        <th scope="row"><?= $product->id ?></th>
-        <td scope="col"><?= $product->title ?></td>
-        <td scope="col"><?= $product->category_id ?></td>
-        <td scope="col"><?= $product->sklad_id ?></td>
-        <td scope="col"><?= $product->amount ?></td>
-        <td scope="col"><?= '$'.$product->price ?></td>
-        <td scope="col">  
-        </tr> 
             
                 <!-- paste -->
               </tbody>
