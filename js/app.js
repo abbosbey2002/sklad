@@ -93,14 +93,14 @@ async function init(){
               }
             }
           })
+          if(newimp<0){
+            product.amount=0;
+            product.push(product)
+          }else{
+            product.amount=newimp
+            newdata.push(product)
+          }
         } 
-        if(newimp<0){
-          product.amount=0;
-          product.push(product)
-        }else{
-          product.amount=newimp
-          newdata.push(product)
-        }
 
         // }
        
