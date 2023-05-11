@@ -1,5 +1,34 @@
 <?php
 
+require_once 'config/Bootstrap.php';
+$userObj=new User();
+$result='';
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $login=$_POST['login'];
+    $position=$_POST['position'];
+    $email=$_POST['email'];
+    $phone_number=$_POST['phone_number'];
+    $password=$_POST['password'];
+ 
+    $result=$userObj->add_user($login, $position, $email, $phone_number, $password);
+    if($result==='successfull'){
+        header("Location:http://localhost:8000/user.php");
+    }else{
+        echo json_encode(["message"=>$result]);
+    }
+}
+
+
+if($_SERVER['REQUEST_METHOD'] == "GET"){
+    $data=$userObj->getAll('users');
+} 
+// var_dump($data);
+?>
+
+<?php
+
 include 'config/Bootstrap.php';
 $product_obj=new Product();
 $result='';
@@ -27,76 +56,69 @@ $products=$product_obj->getAll('prod');
 <body>
 
     <!-- start nav  -->
-    <?php require_once 'assets/navbar.php'; ?>
+    <?php require_once "assets/navbar.php"; ?>
     <!-- end nav -->
+      </a>
     <!-- main section start -->
 
     <div class="main_section">
         <div class="row">
           <div class="col-3">
-             <?php require_once "assets/menus.php" ?>
+            <?php require_once "assets/menus.php" ?>
           </div>
           <div class="col-8" id="main_menu">
           <!-- this menu body -->
           <div id="product">
             <form method="POST" action="">
               <div class="mb-3">
-                <input type="text" required placeholder="Title" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" required placeholder="Login" name="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
-                <input type="text" required placeholder="Description" name="descr" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" required placeholder="phone number" name="phone_ number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
-                <input type="text" required name="image" placeholder="image url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" required name="email" placeholder="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <select required class="form-select"name='category_id' aria-label="Default select example">
-                  <option selected>select category</option>
-                  <option value="1">Electronica</option>
-                  <option value="2">uy</option>
-                  <option value="3">kiyim</option>
+                  <option value="user" selected>user</option>
+                  <option value="admin">admin</option>
+                  <option value="seller">seller</option>
+                  <option value="3">user</option>
                 </select>
               </div>
               <div class="mb-3">
-                <select required class="form-select"name='sklad_id' aria-label="Default select example">
-                  <option selected>select sklad</option>
-                  <option value="1">stimul</option>
-                  <option value="2">tulpor</option>
-                  <option value="3">krug</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <input placeholder="amount" required type="number" name='amount' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <input name="price" placeholder="price" required type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input placeholder="password" required type="password" name='password' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
+              <h1 class="h2"> <?=$result ?></h1>
             </form>
             <!-- table  -->
             <table class="table">
               <thead id="getPoduct">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">category</th>
-                  <th scope="col">skald</th>
-                  <th scope="col">amount</th>
-                  <th scope="col">price</th>
+                  <th scope="col">Login</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">email</th>
+                  <th scope="col">phone number</th>
+                  <th scope="col">password</th>
+                  <th scope="col">created_At</th>
                 </tr>
               </thead>
               <tbody id="prod_cont">
                 <?php  
-                foreach ($products as $product): ?>
+                foreach ($data as $user): ?>
                       <tr>
-        <th scope="row"><?= $product->id ?></th>
-        <td scope="col"><?= $product->title ?></td>
-        <td scope="col"><?= $product->category_id ?></td>
-        <td scope="col"><?= $product->sklad_id ?></td>
-        <td scope="col"><?= $product->amount ?></td>
-        <td scope="col"><?= '$'.$product->price ?></td>
+        <th scope="row"><?= $user->id ?></th>
+        <td scope="col"><?= $user->login ?></td>
+        <td scope="col"><?= $user->position ?></td>
+        <td scope="col"><?= $user->email ?></td>
+        <td scope="col"><?= $user->phone_number ?></td>
+        <td scope="col"><?= '$'.$user->password ?></td>
+        <td scope="col"><?= $user->created_at ?></td>
         <td scope="col"> 
         <a href=<?= "http://localhost:8000/single.php/?id=$product->id" ?>>
          <button class="productEdit btn btn-warning">Edit</button> </td>
@@ -121,3 +143,5 @@ $products=$product_obj->getAll('prod');
 
 </body>
 </html>
+
+

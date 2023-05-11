@@ -38,7 +38,7 @@ class getAllTable{
     // get single product
     public function get_single($id, $table_name)
     {
-        $query="SELECT * FROM $table_name WHERE id=$id";
+        $query="SELECT * FROM $table_name WHERE id=?";
         $stmt=self::$pdo->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'GetAllTable');
         $stmt->execute([$id]);
