@@ -26,8 +26,8 @@ class Product extends getAllTable
         title = :title,
         descr = :descr,
         image = :image,
-        category_id = :category_id,
-        sklad_id = :sklad_id,
+        category = :category,
+        sklad = :sklad,
         amount = :amount,
         price = :price,
         import = :import,
@@ -40,8 +40,8 @@ class Product extends getAllTable
             "title"=>$data->title,
             "descr"=>$data->descr,
             "image"=>$data->image,
-            "category_id"=>$data->category_id,
-            "sklad_id"=>$data->sklad_id,
+            "category"=>$data->category,
+            "sklad"=>$data->sklad,
             "amount"=>$data->amount,
             "price"=>$data->price,
             "import"=>$data->import,
@@ -83,37 +83,46 @@ class Product extends getAllTable
     // add products
     public function add_product($data)
     {
-        
+    
+        if($data['category']=='0' || $data['sklad']=='0'){
+            return 'sklad or category not selected';
+        }
+            
             // clear data 
             $product=$data;
             $title=$product['title'];
             $descr=$product['descr'];
             $image=$product['image'];
-            $category_id=$product['category_id'];
-            $sklad_id=$product['sklad_id'];
+            $category=$product['category'];
+            $sklad=$product['sklad'];
             $amount=$product['amount'];
             $price=$product['price'];
             $sell=null;
             $import=null;
             // end clear data
             // query   sql
-            $query = "INSERT INTO prod    (title, descr, image, category_id, sklad_id, amount, price, sell, import) VALUES 
-            (:title, :descr, :image, :category_id, :sklad_id, :amount, :price, :sell, :import)";
+            $query = "INSERT INTO prod    (title, descr, image, category, sklad, amount, price, sell, import) VALUES 
+            (:title, :descr, :image, :category, :sklad, :amount, :price, :sell, :import)";
             // pdo connect database
             $stmt = self::$pdo->prepare($query);
             $stmt->execute([
                 "title"=>$title,
                 "descr"=>$descr,
                 "image"=>$image,
-                "category_id"=>$category_id,
-                "sklad_id"=>$sklad_id,
+                "category"=>$category,
+                "sklad"=>$sklad,
                 "amount"=>$amount,
                 "price"=>$price,   
                 "sell"=>$sell,
                 "import"=>$import       
             ]);
-    }
-}
-
-
-   
+            if(!$stmt->rowCount()){
+                echo 'xato';
+            }
+        }
+        }
+    
+    
+    
+    
+    

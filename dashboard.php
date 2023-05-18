@@ -27,25 +27,28 @@ include 'config/Bootstrap.php';
           </div>
           <div class="col-8" id="main_menu">
           <!-- this menu body -->
-          <div id="product">
+          <div id="product" class="bg-secondary-subtle m-2 p-3">
             <!-- table  -->
             <!-- calendar --> 
            <div>
              </div>
              <!-- calendar -->
+             <input id="inp_date" required name="date" class="text text-primary p-1" type="date">
              <table class="table">
                <thead id="getPoduct">
                  <tr>
                    <th scope="col">#</th>
                    <th scope="col">Title</th>
-                   <th scope="col">
-                    <input id="inp_date" required name="date" class="text text-primary p-1" type="date">
+                   
                    </th>
-                    <select class="form-select" name="category" id="">
-                      <option selected>category</option>
-                      <option value="1">Electronika</option>
-                      <option value="2">kiyim</option>
-                    </select>
+                   <th>
+
+                     <select class="form-select" name="category" id="">
+                       <option selected>category</option>
+                       <option value="1">Electronika</option>
+                       <option value="2">kiyim</option>
+                      </select>
+                    </th>
                   </th>
                   <th scope="col"><select class="form-select" name="sklad" id="">
                       <option selected>sklad</option>

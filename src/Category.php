@@ -1,7 +1,7 @@
 <?php
 
 
-require_once "./config/Bootstrap.php";
+// require_once "./config/Bootstrap.php";
 require_once  "GetApi.php";
 
 class Category extends getAllTable{

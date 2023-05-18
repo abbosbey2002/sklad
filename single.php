@@ -21,26 +21,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['amount']))){
 
 
 
-
-
-// var_dump();
-
-
-
 ?>
+<?php require_once "assets/navbar.php"; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  
-</head>
-<body>
 
   <a href="http://localhost:8000">Orqaga</a>
 
@@ -60,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['amount']))){
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><b>Price:</b> <span id="price"><?= $product->price ?></span></li>
                   <li   class=" list-group-item"><b>Amount:</b> <span id="amount" ><?= $product->amount ?></span> </li>
-                  <li class="list-group-item"><b>Category ID:</b><?= $product->category_id ?></li>
+                  <li class="list-group-item"><b>Category ID:</b><?= $product->category ?></li>
                   <li class="list-group-item"><b>Created At:</b> <?= $product->created_at ?> </li>
                 </ul>
                 <a href="#" class="btn btn-primary my-3">Buy Now</a>
