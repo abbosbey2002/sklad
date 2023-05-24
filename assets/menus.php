@@ -9,9 +9,9 @@
               <a href="http://localhost:8000/user.php" class="text navbar-brand mb-0 h1">users</a>
               </div>
               <div class="container-fluid my-2">
-              <a href="http://localhost:8000/user.php" class="text navbar-brand mb-0 h1">Category</a>
+              <a href="http://localhost:8000/Category.php" class="text navbar-brand mb-0 h1">Category</a>
               </div>
               <div class="container-fluid my-2">
-              <a href="http://localhost:8000/user.php" class="text navbar-brand mb-0 h1">Sklad</a>
+              <a href="http://localhost:8000/sklad.php" class="text navbar-brand mb-0 h1">Sklad</a>
               </div>
             </nav>

@@ -18,6 +18,7 @@ class Category extends getAllTable{
         // clear data
         $title=$this->clear_data($title);
         $id=$this->clear_data($cat_id);
+        
 
         $stmt=self::$pdo->prepare($query);
         $stmt->execute([
@@ -25,8 +26,8 @@ class Category extends getAllTable{
             "title"=>$title
         ]);
 
-        if($stmt->rowCount()) {
-        return ["message"=>"successfull"];
+        if(!$stmt->rowCount()){
+        return ["message"=>"something went wrong!!"];
       }
 
     }   

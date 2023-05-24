@@ -62,13 +62,13 @@ $products=$product_obj->getAll('prod');
                 <input type="text" required placeholder="Login" name="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
-                <input type="text" required placeholder="phone number" name="phone_ number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" required placeholder="phone number" name="phone_number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <input type="email" required name="email" placeholder="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
-                <select required class="form-select"name='category_id' aria-label="Default select example">
+                <select required class="form-select"name='position' aria-label="Default select example">
                   <option value="user" selected>user</option>
                   <option value="admin">admin</option>
                   <option value="seller">seller</option>

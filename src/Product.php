@@ -113,8 +113,8 @@ class Product extends getAllTable
                 "sklad"=>$sklad,
                 "amount"=>$amount,
                 "price"=>$price,   
-                "sell"=>$sell,
-                "import"=>$import       
+                "sell"=>'',
+                "import"=>$amount       
             ]);
             if(!$stmt->rowCount()){
                 echo 'xato';

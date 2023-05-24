@@ -1,3 +1,9 @@
 .scrol_div{
     overflow-y: scroll;
 }
+
+#main_menu{
+    height: 90vh;
+    border: 1px solid red;
+    overflow-y: auto;
+}

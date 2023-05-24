@@ -19,7 +19,7 @@ async function init(){
             <td scope="col">${product.category}</td>
             <td scope="col">${product.sklad}</td>
             <td scope="col">${product.amount}</td>
-            <td scope="col">'$'${product.price}</td>
+            <td scope="col">$${product.price}</td>
           </tr>`;
   
         contain.insertAdjacentHTML('beforeend', html);
@@ -41,20 +41,36 @@ async function init(){
       console.error(err);
     }
   }
-
+  
   async function redata(newdata){
-      // contain.innerHTML=''
-      newdata.map((product, index) => {
-        let html = `<tr>
-            <th  scope="row">${index}</th>
-            <td scope="col">${product.title}</td>
-            <td scope="col">${product.category}</td>
-            <td scope="col">${product.sklad}</td>
-            <td scope="col">${product.amount}</td>
-            <td scope="col">'$'${product.price}</td>
-          </tr>`;
+    // contain.innerHTML=''
+    const category=document.querySelector("#category").value;
+    newdata.map((product, index) => {
+        let html
+        console.log(category);
+        
+        if(category==product.category){
+          html = `<tr>
+              <th  scope="row">${index}</th>
+              <td scope="col">${product.title}</td>
+              <td scope="col">${product.category}</td>
+              <td scope="col">${product.sklad}</td>
+              <td scope="col">${product.amount}</td>
+              <td scope="col">$${product.price}</td>
+            </tr>`;
+            contain.insertAdjacentHTML('beforeend', html);
+        }else if(category=='all'){
+          html = `<tr>
+              <th  scope="row">${index}</th>
+              <td scope="col">${product.title}</td>
+              <td scope="col">${product.category}</td>
+              <td scope="col">${product.sklad}</td>
+              <td scope="col">${product.amount}</td>
+              <td scope="col">$${product.price}</td>
+            </tr>`;
+            contain.insertAdjacentHTML('beforeend', html);
+        }
 
-        contain.insertAdjacentHTML('beforeend', html);
       });
    
   }
