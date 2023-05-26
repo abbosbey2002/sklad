@@ -7,3 +7,33 @@
     border: 1px solid red;
     overflow-y: auto;
 }
+.top_th{
+    border-bottom: 1px solid blue;
+    background-color: rgb(200, 224, 245);   
+}
+.back_page{
+    color: #794d13;
+    text-decoration: none;
+    border: 1px solid #794d13;
+    padding: 1rem;
+    margin: 10px;
+    margin-top: 10px;
+}
+.card_box{
+    display: flex;
+    flex-direction: row;
+}
+.image_box{
+    text-align: center;
+}
+#image{
+    text-align: center;
+    margin: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .card_box{
+        flex-direction: column;
+    }
+    
+}

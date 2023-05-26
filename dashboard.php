@@ -24,14 +24,30 @@ $category=$cat_obj->getAll('category');
           <div class="col-8" id="main_menu">
           <!-- this menu body -->
           <div id="product" class="bg-secondary-subtle m-2 p-3">
-            <!-- table  -->
+          <div class="profit">
+           
+          </div>  
+          <!-- table  -->
             <!-- calendar --> 
-           <div>
-             </div>
-             <!-- calendar -->
-             <input id="inp_date" required name="date" class="text text-primary p-1" type="date">
-             <table class="table">
-               <thead id="getPoduct">
+
+            <div>
+              </div>
+              <!-- calendar -->
+              <table class="table">
+                <thead id="getPoduct">
+                  <tr class="top_th">
+                    <th scope="col">
+                     <input id="inp_date" required name="date" class="text text-primary p-1" type="date">
+                   </th>
+                   <th scope="col"></th>
+                   
+                   </th>
+                   <th></th>
+                  </th>
+                  <th scope="col">Sklad</th>
+                  <th scope="col"><span id="amount_header"></span></th>
+                  <th scope="col">$<span id="profit_header"></span></th>
+                </tr>
                  <tr>
                    <th scope="col">#</th>
                    <th scope="col">Title</th>

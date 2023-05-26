@@ -1,7 +1,7 @@
 <?php
-// header('Access-Control-Allow-Origin: *');
-// header('Content-Type: application/json');
-// header('Access-Control-Allow-Origin');
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin');
 
 require_once 'config/Bootstrap.php';
 $cate_Obj=new Sklad(); 

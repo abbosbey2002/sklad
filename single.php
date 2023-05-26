@@ -25,18 +25,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['amount']))){
 <?php require_once "assets/navbar.php"; ?>
 
 
-  <a href="http://localhost:8000">Orqaga</a>
+  <a class="back_page" href="http://localhost:8000/product.php"><<<</a>
 
   <h1 id="getPoduct"></h1>
   
-      <div class="container">
-      <div class="d-flex justify-content-between">
-          <div class="col-md-6 col-lg-6     my-3">
-            <div class="card">
-              <div class="col-12 row row-2">
+      <div class="container-fluid">
+      <div class="d-flex container-fluid	 justify-content-between">
+          <div class="   my-3">
+            <!-- start cardbox  -->
+            <div class="card card_box">
+              <!-- start image  -->
+              <div class="image_box col-lg-8 col-md-6 col-sm-4">
                 <img width="100%" height='100%' id="image" src=<?= $product->image ?> class=" img-thumbnail" alt="...">
 
               </div>
+              <!-- end image -->
+                <!-- start card body -->
               <div class="card-body">
                 <h5 id="card-title" class="card-title"> <span id='delId'><?= $product->id ?></span> <?= $product->title ?></h5>
                 <p id="card-text" class="card-text"> <?= $product->descr ?> </p>
@@ -46,32 +50,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['amount']))){
                   <li class="list-group-item"><b>Category ID:</b><?= $product->category ?></li>
                   <li class="list-group-item"><b>Created At:</b> <?= $product->created_at ?> </li>
                 </ul>
+                <form class="form-control m-1 input-group" method="POST" action="">
+                <input required placeholder="type prixod product amount" class="form-control" name='amount' type="number">
+                <button class="btn btn-warning" type="submit">Prixod</button>
+                </form>
+                <form class="form-control input-group m-1" method="POST" action="">
+                <input placeholder="type sell product amount" class="form-control" required name="delINput" id="delINput" type="number" >
+                  <button id="delBtn" type="submit" class="btn btn-danger">Sell</button>
+                  </form>
                 <a href="#" class="btn btn-primary my-3">Buy Now</a>
                 <form class="form-controll card m-1" method="POST" action="<?="http://localhost:8000/destroy.php/?id=$product->id"?>">
 
-            <button id="delBtn" type="submit" class="btn btn-danger">Delete</button>
-            </form>
+                  <button id="delBtn" type="submit" class="btn btn-danger">Delete</button>
+                </form>
                 
-              </div>
-            </div>
-          </div>
-          <div>
-          </div>
-          <div class="card row justify-content col-6 m-4"> 
-            <form class="form-control card m-1" method="POST" action="">
-                <h1 class='h2 text'>Prixod tovar</h1>
-                <input required placeholder="amount" class="m-2 form-control" name='amount' type="number">
-                <button class="btn btn-warning" type="submit">Prixod</button>
-            </form>
-            <form class="form-controll card m-1" method="POST" action="">
-              <input required name="delINput" id="delINput" type="number" >
-            <button id="delBtn" type="submit" class="btn btn-danger">Sell</button>
-            </form>
+                </div>
+              <!-- end card body  -->
+            </div> 
+            <!-- end cardbox -->
+
 
           </div>
-        </div>
-      </div>
-
+         
       
       <!-- <script src="app.js"></script> -->
       <!-- <script src="pro.js"></script> -->

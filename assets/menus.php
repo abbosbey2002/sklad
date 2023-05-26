@@ -3,7 +3,7 @@
               <a href="http://localhost:8000/dashboard.php" class="navbar-brand mb-0 h1">Dashboard</a>
               </div>
               <div class="container-fluid my-2">
-                <a href="http://localhost:8000/" class="text navbar-brand mb-0 h1">Product</a>
+                <a href="http://localhost:8000/product.php" class="text navbar-brand mb-0 h1">Product</a>
               </div>
               <div class="container-fluid my-2">
               <a href="http://localhost:8000/user.php" class="text navbar-brand mb-0 h1">users</a>

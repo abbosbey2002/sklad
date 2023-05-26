@@ -1,18 +1,26 @@
 const contain=document.querySelector("#prod_cont");
+const profitHeader=document.querySelector("#profit_header");
+const amountheader=document.querySelector("#amount_header");
 
 let data=[];
+let profit=0;
+let amount=0;
 
 const url='http://localhost:8000/api.php'
 
 async function init(){
-
+    profit=0;
+    amount=0
     try {
       let response = await fetch(url);
       let res = await response.json();
-      console.log(res)
-        data=res
-        contain.innerHTML=''
+      data=res
+      contain.innerHTML=''
       res.map((product, index) => {
+        profit+=product.price*product.amount;
+        amount+=product.amount;
+        profitHeader.textContent=profit;
+        amountheader.textContent=amount
         let html = `<tr>
             <th scope="row">${index}</th>
             <td scope="col">${product.title}</td>
@@ -45,11 +53,16 @@ async function init(){
   async function redata(newdata){
     // contain.innerHTML=''
     const category=document.querySelector("#category").value;
+    console.log(typeof category)
+    profit=0;
+    amount=0;
     newdata.map((product, index) => {
         let html
-        console.log(category);
-        
-        if(category==product.category){
+        if(category!='all' && category==product.category){
+          profit+=product.price*product.amount;
+          amount+=product.amount;
+          profitHeader.textContent=profit;
+          amountheader.textContent=amount;
           html = `<tr>
               <th  scope="row">${index}</th>
               <td scope="col">${product.title}</td>
@@ -60,6 +73,10 @@ async function init(){
             </tr>`;
             contain.insertAdjacentHTML('beforeend', html);
         }else if(category=='all'){
+          profit+=product.price*product.amount;
+          amount+=product.amount;
+          profitHeader.textContent=profit;
+          amountheader.textContent=amount
           html = `<tr>
               <th  scope="row">${index}</th>
               <td scope="col">${product.title}</td>
